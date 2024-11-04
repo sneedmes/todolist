@@ -1,5 +1,6 @@
 import React from 'react';
 import {TaskType} from "./App";
+import './Todolist.css';
 
 type TodolistProps = {
     tasks: Array<TaskType>
@@ -27,7 +28,7 @@ export const Todolist = (props: TodolistProps) => {
                         })}
                     </ul>
             }
-            <div>
+            <div className='actionButtons'>
                 <button>
                     All
                 </button>
