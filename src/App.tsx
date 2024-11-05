@@ -1,10 +1,15 @@
 import React from 'react';
 import './App.css';
-import {Todolist} from "./Todolist";
+import {Todolist} from "./Components/Todolist";
+import ButtonCalc from "./Components/ButtonCalc";
 export type TaskType = {
     id: number,
     title: string,
     isDone: boolean
+}
+export type ButtonCalc = {
+    a: number,
+    b: number
 }
 function App() {
     // Array<TaskType> === TaskType[]
@@ -29,6 +34,11 @@ function App() {
         {id: 4, title: 'Workout', isDone: true},
         {id: 5, title: 'Keep a diet', isDone: false},
     ]
+    const a = 10
+    const b = 16
+    const sumSqrt = (a: number, b:number) => {
+        return (a+b)**2
+    }
   return (
     <div className="App">
         <Todolist title="Daily plan" tasks={tasks3}/>

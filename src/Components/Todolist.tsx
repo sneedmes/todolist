@@ -1,11 +1,12 @@
 import React from 'react';
-import {TaskType} from "./App";
-import './Todolist.css';
+import {TaskType} from "../App";
+import './style/Todolist.css';
 
 type TodolistProps = {
     tasks: Array<TaskType>
     title: string
 }
+
 export const Todolist = (props: TodolistProps) => {
     return (
         <div>
