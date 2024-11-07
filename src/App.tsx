@@ -1,46 +1,40 @@
-import React from 'react';
 import './App.css';
-import {Todolist} from "./Components/Todolist";
-import {ButtonCalc} from "./Components/ButtonCalc";
+import {Todolist} from "./Todolist";
+import {useState} from "react";
+
 export type TaskType = {
-    id: number,
-    title: string,
+    id: number
+    title: string
     isDone: boolean
 }
+
 function App() {
-    // Array<TaskType> === TaskType[]
-    const tasks1:Array<TaskType> = [
-        { id: 1, title: 'Над пропастью во ржи', isDone: false },
-        { id: 2, title: 'Мы', isDone: true },
-        { id: 3, title: 'Анна Каренина', isDone: true },
-        { id: 4, title: 'Преступление и наказание', isDone: true },
-        { id: 5, title: 'Джейн Эйр', isDone: false },
-        { id: 6, title: 'Война и мир', isDone: true }
+    const tasks1: Array<TaskType> = [
+        { id: 1, title: 'HTML&CSS', isDone: true },
+        { id: 2, title: 'JS', isDone: true },
+        { id: 3, title: 'ReactJS', isDone: false },
+        { id: 4, title: 'Redux', isDone: false },
+        { id: 5, title: 'Typescript', isDone: false },
+        { id: 6, title: 'RTK query', isDone: false },
     ]
-    const tasks2: Array<TaskType> = [
-        { id: 1, title: 'React', isDone: true },
-        { id: 2, title: 'Web-site', isDone: false },
-        { id: 3, title: 'Tic-Tac-Toe', isDone: false },
-        { id: 4, title: 'Matrix', isDone: true }
-    ]
-    const tasks3: Array<TaskType> = [
-        {id: 1, title: 'Homework', isDone: false},
-        {id: 2, title: 'Reading', isDone: true},
-        {id: 3, title: 'Commiting to GH', isDone: true},
-        {id: 4, title: 'Workout', isDone: true},
-        {id: 5, title: 'Keep a diet', isDone: false},
-    ]
-    const sumSqrt = (a: number, b:number) => {
-        return (a+b)**2
+    const [tasks, setTasks] = useState(tasks1)
+
+    const removeTask = (taskId: number) => {
+        const filteredTasks = tasks.filter(el => el.id !== taskId)
+        setTasks(filteredTasks)
     }
-  return (
-    <div className="App">
-        <ButtonCalc sumSqrt={sumSqrt}/>
-        <Todolist title="Daily plan" tasks={tasks3}/>
-        <Todolist title="What to read" tasks={tasks1}/>
-        <Todolist title="Projects" tasks={tasks2}/>
-    </div>
-  );
+
+    const tasks2: Array<TaskType> = [
+        // { id: 1, title: 'Hello world', isDone: true },
+        // { id: 2, title: 'I am Happy', isDone: false },
+        // { id: 3, title: 'Yo', isDone: false },
+    ]
+
+    return (
+        <div className="App">
+            <Todolist title="What to learn" tasks={tasks} removeTask={removeTask}/>
+        </div>
+    );
 }
 
 export default App;

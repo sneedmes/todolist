@@ -1,9 +1,0 @@
-.actionButtons{
-    display: flex;
-    gap: 10px;
-}
-.actionButtons button{
-    padding: 10px;
-    width: 100px;
-    background-color: #f1bba2;
-}
